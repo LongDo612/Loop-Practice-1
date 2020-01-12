@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="button1" onclick="f1()">Bai1</button>
+    <button id="button2" onclick="f2()">Bai2</button>
+    <button id="button3" onclick="f3(20)">Bai3</button>
+    <button id="button4" onclick="f4()">Bai4</button>
+    <button id="button5" onclick="f5(20)">Bai5</button>
+    <button id="button6" onclick="f6()">Bai6</button>
+    <button id="button7" onclick="f7()">Bai7</button>
+    <button id="button8" onclick="f8()">Play</button>
+
+    <script>
+        let f1 = () => {
+            for (i=1;i<100;i++){
+                if(i==99){
+                    document.write("Da hoan thanh");
+                    break;
+                }
+                document.write(i + "<br>");
+            }
+        }
+
+        let f2 = () => {
+            a = prompt("Nhap nhiet do hien tai: ");
+            a = parseInt(a);
+            if(a > 100)
+                alert("Giam nhiet do!");
+            else if (a < 20)
+                alert("Tang nhiet do!");
+        }
+
+        let f3 = (number) => {
+            let f0 = 0, f1 = 1,fn;
+            document.write("0" + "<br>" + "1" +"<br>");
+            if(number<2){
+                fn = 1;
+            }
+            else {
+                for(i = 0;i<number-2;i++){
+                    fn = f0 + f1;
+                    f0 = f1;
+                    f1 = fn;
+                    document.write(fn + "<br>");
+                }
+            }
+        }
+
+        let f5 = (number) => {
+            let f0 = 0, f1 = 1,fn,result=0;
+            if(number<2){
+                fn==1;
+            }
+            else {
+                for(i = 0;i<number-2;i++){
+                    fn = f0 + f1;
+                    f0 = f1;
+                    f1 = fn;
+                    result += fn;
+                }
+            }
+            document.write("Tong 20 so fibonacci dau tien la: " +(result+1));
+        }
+
+        let f4 = () => {
+            let f0 = 0, f1 = 1,fn;
+            while(fn%5!=0){
+                fn = f0 + f1;
+                f0 = f1;
+                f1 = fn;
+                if(fn%5==0) {
+                    document.write("So fibo dau tien chia het cho 5 la: " + fn + ".<br>");
+                    break;
+                }
+            }
+        }
+
+        let f6 = () => {
+            let total =0, number=0, count = 0;
+            while (count<30){
+                if(number%7==0){
+                    total+=number;
+                    count++;
+                    number += 7;
+                }
+            }
+            document.write("Tong 30 so tu nhien dau tien chia het cho 7 la: "+total+".");
+        }
+
+        let f7 = () => {
+            let txt = "";
+            for (i=1;i<=100;i++){
+                if(i%3==0)
+                    txt += "Fizz" + "<br>";
+                else if (i%5==0)
+                    txt += "Buzz" + "<br>";
+                else if(i%15==0){
+                    txt += "BuzzFizz" + "<br>";
+                }
+            }
+            document.write(txt);
+        }
+
+        let f8 = () => {
+            let count = 0,turn;
+            let a = prompt("Nhap khoang so muon doan: ");
+            a = parseInt(a);
+            let b = prompt("Nhap khoang so muon doan: ");
+            b = parseInt(b);
+            do {
+                c = prompt("Nhap so ban muon doan: ");
+                c = parseInt(c);
+                let result = Math.random() * (b - a) + a;
+                result = parseInt(result);
+                if (c == result) {
+                    alert("Chuc mung ban la nguoi chien thang!");
+                    break;
+                } else {
+                    alert("Ban da thua!So can doan la: " + result);
+                    count++;
+                }
+                turn = 3 - count;
+                if(turn==0){
+                    alert("Ban da het luot choi!");
+                    break;
+                }
+                else {
+                    alert("Ban con " +turn + " luot choi");
+                }
+            }while (count < 3);
+        }
+    </script>
+</body>
+</html>
